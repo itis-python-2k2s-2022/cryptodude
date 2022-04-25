@@ -1,0 +1,10 @@
+stages:
+  - lint
+
+lint:
+  stage: lint
+  image: python:3.8
+  before_script: []
+  script:
+    - pip install black==22.3.0
+    - black . --check --diff

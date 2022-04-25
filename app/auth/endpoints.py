@@ -7,8 +7,7 @@ from jose import JWTError, jwt
 
 from app.auth.constants import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
 from app.auth.pydantic_models import Token, User
-from app.auth.services import (authenticate_user, create_access_token, get_current_active_user,
-                               oauth2_scheme)
+from app.auth.services import authenticate_user, create_access_token, get_current_active_user, oauth2_scheme
 
 # for testing purposes
 # TODO заменить логику с БД
@@ -36,9 +35,7 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
             headers={"WWW-Authenticate": "Bearer"},
         )
     access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
-    access_token = create_access_token(
-        data={"sub": user.username}, expires_delta=access_token_expires
-    )
+    access_token = create_access_token(data={"sub": user.username}, expires_delta=access_token_expires)
     return {"access_token": access_token, "token_type": "bearer"}
 
 
