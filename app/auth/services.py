@@ -6,7 +6,7 @@ from fastapi.security import OAuth2PasswordBearer
 from passlib.context import CryptContext
 from jose import JWTError, jwt
 
-from app.auth.pydantic_models import UserInDB, TokenData, User
+from app.auth.schemas import UserInDB, TokenData, User
 from app.auth.constants import SECRET_KEY, ALGORITHM
 
 

@@ -6,7 +6,7 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 
 from app.auth.constants import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
-from app.auth.pydantic_models import Token, User
+from app.auth.schemas import Token, User
 from app.auth.services import authenticate_user, create_access_token, get_current_active_user, oauth2_scheme
 
 # for testing purposes
