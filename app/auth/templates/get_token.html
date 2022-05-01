@@ -1,0 +1,24 @@
+<h1>Вы на странице токена, пожалуйста подождите</h1>
+<script>
+    let token = document.location.href
+    console.log(token)
+    token = token.split('#access_token=')[1]
+    token = token.split('&')[0]
+    let previous_location = document.location.protocol + "//" + document.location.host
+    fetch('/google_token?' + new URLSearchParams({
+        token: token,
+    }),
+        {
+        method: 'GET',
+        headers: {
+            "X-Requested-With": "XMLHttpRequest",
+        },
+    })
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+            document.location.href = previous_location
+        });
+
+</script>

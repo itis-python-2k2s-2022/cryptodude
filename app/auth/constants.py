@@ -12,3 +12,6 @@ DB_USER = env.str("DB_USER")
 DB_PASSWORD = env.str("DB_PASSWORD")
 DB_SERVER = env.str("DB_SERVER")
 DB_NAME = env.str("DB_NAME")
+
+# Google OAuth settings
+CLIENT_ID = env.str("CLIENT_ID")
